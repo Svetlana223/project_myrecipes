@@ -37,7 +37,7 @@ CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    'https://StrelSv.pythonanywhere.com'
+    'StrelSv.pythonanywhere.com'
 ]
 
 
