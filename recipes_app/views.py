@@ -13,8 +13,8 @@ def home(request):
     return render(request, 'home.html', {'recipes': random_recipes})
 
 
-def recipe_detail(request, user_id):
-    recipe = get_object_or_404(Recipe, id=user_id)
+def recipe_detail(request, pk):
+    recipe = get_object_or_404(Recipe, id=pk)
     return render(request, 'recipe_detail.html', {'recipe': recipe})
 
 
