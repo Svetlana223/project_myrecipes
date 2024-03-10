@@ -16,6 +16,7 @@ class Recipe(models.Model):
     cooking_time = models.IntegerField()
     image = models.ImageField(upload_to='recipes/')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    categories = models.ManyToManyField('Category')
 
     def __str__(self):
         return self.title
