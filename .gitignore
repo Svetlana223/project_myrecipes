@@ -1,0 +1,9 @@
+/media/
+/static/
+*.sqlite3
+*.log
+*.pyc/recipes_app/__pycache__/
+/recipes_app/management/__pycache__/
+/recipes_app/management/commands/__pycache__/
+/recipes_app/migrations/__pycache__/
+.env
