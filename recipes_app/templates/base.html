@@ -10,8 +10,15 @@
         <h1>My Recipe Site</h1>
         <nav>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'add_recipe' %}">Add Recipe</a></li>
+                <li><a href="{% url 'home' %}">Домашняя страница</a></li>
+                <li><a href="{% url 'add_recipe' %}">Добавить рецепт</a></li>
+                {% if user.is_authenticated %}
+                    <li>Привет, {{ user.username }}!</li>
+                    <li><a href="{% url 'logout' %}">Выйти</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Войти</a></li>
+                    <li><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
