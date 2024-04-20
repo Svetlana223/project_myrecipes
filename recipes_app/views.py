@@ -5,6 +5,7 @@ from .models import Recipe
 import random
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -18,6 +19,7 @@ def recipe_detail(request, pk):
     return render(request, 'recipe_detail.html', {'recipe': recipe})
 
 
+@login_required(login_url='/login/')
 def add_recipe(request):
     if request.method == 'POST':
         form = RecipeForm(request.POST, request.FILES)
@@ -35,7 +37,7 @@ def add_recipe(request):
             categories = form.cleaned_data.get('categories')
             if categories:
                 new_recipe.categories.set(categories)
-            return redirect('recipe_detail', id=new_recipe.id)
+            return redirect('recipe_detail', pk=new_recipe.id)
     else:
         form = RecipeForm()
     return render(request, 'add_edit_recipe.html', {'form': form})
